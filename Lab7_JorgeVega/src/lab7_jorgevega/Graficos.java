@@ -17,9 +17,9 @@ public class Graficos extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        TF_USUARIO = new javax.swing.JTextField();
-        TF_PASSWORD = new javax.swing.JTextField();
-        BTN_INGRESAR = new javax.swing.JButton();
+        nombre_usuario = new javax.swing.JTextField();
+        password = new javax.swing.JTextField();
+        enter = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -35,16 +35,16 @@ public class Graficos extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Usuario");
 
-        TF_USUARIO.setBackground(new java.awt.Color(153, 153, 255));
+        nombre_usuario.setBackground(new java.awt.Color(153, 153, 255));
 
-        TF_PASSWORD.setBackground(new java.awt.Color(153, 153, 255));
+        password.setBackground(new java.awt.Color(153, 153, 255));
 
-        BTN_INGRESAR.setBackground(new java.awt.Color(153, 153, 255));
-        BTN_INGRESAR.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        BTN_INGRESAR.setText("ENTRAR");
-        BTN_INGRESAR.addMouseListener(new java.awt.event.MouseAdapter() {
+        enter.setBackground(new java.awt.Color(153, 153, 255));
+        enter.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        enter.setText("ENTRAR");
+        enter.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                BTN_INGRESARMouseClicked(evt);
+                enterMouseClicked(evt);
             }
         });
 
@@ -63,11 +63,11 @@ public class Graficos extends javax.swing.JFrame {
                         .addGap(92, 92, 92))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(TF_PASSWORD, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(TF_USUARIO, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(password, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(nombre_usuario, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(64, 64, 64))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(BTN_INGRESAR)
+                        .addComponent(enter)
                         .addGap(80, 80, 80))))
         );
         jPanel1Layout.setVerticalGroup(
@@ -76,13 +76,13 @@ public class Graficos extends javax.swing.JFrame {
                 .addGap(38, 38, 38)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(TF_USUARIO, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(nombre_usuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(27, 27, 27)
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
-                .addComponent(TF_PASSWORD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(password, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
-                .addComponent(BTN_INGRESAR, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(enter, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(29, 29, 29))
         );
 
@@ -100,57 +100,41 @@ public class Graficos extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void BTN_INGRESARMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BTN_INGRESARMouseClicked
-        String USER = TF_USUARIO.getText(),PASS = TF_PASSWORD.getText();
+    private void enterMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_enterMouseClicked
+      
+        
+        
+        String USER = nombre_usuario.getText(),PASS = password.getText();
         
   
         
         Clase_SuperUser K = new Clase_SuperUser();    
-        String usuario = K.getUSER();
-        String contrasena = K.getPASS();
-        String nombre = K.getNAME();
-        String apellido = K.getLAST_NAME();
+        String usuario = K.getUSER(),contrasena = K.getPASS(),nombre = K.getNAME(),apellido = K.getLAST_NAME();
+        
+        
         
         if((USER.contains(usuario)) && (PASS.contains(contrasena))){
             
             
-            JOptionPane.showMessageDialog(this, "Bienvenido "+ nombre+ " "+ apellido);
+            JOptionPane.showMessageDialog(this, " Hola "+ nombre+ " "+ apellido);
         }else{
+            
+            
+            
+            
+            
             JOptionPane.showMessageDialog(this, "ES INCORRECTO EL USUARIO O LA CONTRASENA");
         }
-    }//GEN-LAST:event_BTN_INGRESARMouseClicked
+        
+        
+        
+        
+        
+        
+    }//GEN-LAST:event_enterMouseClicked
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Graficos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Graficos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Graficos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Graficos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
 
-        /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new Graficos().setVisible(true);
@@ -159,12 +143,12 @@ public class Graficos extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton BTN_INGRESAR;
-    private javax.swing.JTextField TF_PASSWORD;
-    private javax.swing.JTextField TF_USUARIO;
+    private javax.swing.JButton enter;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JTextField nombre_usuario;
+    private javax.swing.JTextField password;
     // End of variables declaration//GEN-END:variables
     
 
