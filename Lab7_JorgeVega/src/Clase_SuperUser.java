@@ -1,4 +1,3 @@
-package lab7_jorgevega;
 
 /**
 Jorge Vega
@@ -38,8 +37,9 @@ public class Clase_SuperUser {
     
     @Override
     public String toString() {
-        return "Nombre: " + NAME + " Usuario: " + USER;
+        return "NOMBRE: " + NAME + " USUARIO: " + USER;
     }
     
     
 }
+

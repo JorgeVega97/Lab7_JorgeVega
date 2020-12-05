@@ -1,4 +1,3 @@
-package lab7_jorgevega;
 
 import java.io.Serializable;
 
@@ -6,7 +5,6 @@ import java.io.Serializable;
 Jorge Vega
  */
 public class Clase_Users implements Serializable{
-
     private static final long SerialVersionUID = 380L;
     private float FINAL_CALIFICACION;
     private String USER;

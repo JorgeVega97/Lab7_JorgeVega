@@ -1,4 +1,3 @@
-package lab7_jorgevega;
 
 import java.io.EOFException;
 import java.io.File;
@@ -11,10 +10,10 @@ import java.util.ArrayList;
 /**
 Jorge Vega
  */
+
 public class Administrar_User {
-    private File FILE = null;
     private ArrayList<Clase_Users> USUARIOS_LISTADOS = new ArrayList();
-    
+    private File FILE = null;
     
     public Administrar_User(String path) {
         FILE = new File(path);
@@ -36,48 +35,47 @@ public class Administrar_User {
         this.FILE = FILE;
     }
     
-    public void setALUMNO(Clase_Users xx){
-        USUARIOS_LISTADOS.add(xx);
+    public void setALUMNO(Clase_Users KK){
+        USUARIOS_LISTADOS.add(KK);
     }
     
     
-    public void LOADING_FILE() {
+    public void FILE_LOADING() {
         try {            
-            USUARIOS_LISTADOS = new ArrayList();
-            Clase_Users P;
+            USUARIOS_LISTADOS = new ArrayList();Clase_Users P;
             if (FILE.exists()) {
-                FileInputStream A = new FileInputStream(FILE);
-                ObjectInputStream O = new ObjectInputStream(A);
+                FileInputStream A= new FileInputStream(FILE);
+                ObjectInputStream O= new ObjectInputStream(A);
                 try {
                     while ((P = (Clase_Users) O.readObject()) != null) {
                         USUARIOS_LISTADOS.add(P);
                     }
-                } catch (EOFException ERR) {
+                } catch (EOFException ER) {
                 }
                 O.close();
                 A.close();
             }            
-        } catch (Exception ERRR) {
-            ERRR.printStackTrace();
+        } catch (Exception ERR) {
+            ERR.printStackTrace();
         }
     }
 
-    public void WRITE_FILE() {
-        FileOutputStream fw = null;
-        ObjectOutputStream bw = null;
+    public void SHOW_FILE() {
+        FileOutputStream Q = null;
+        ObjectOutputStream H = null;
         try {
-            fw = new FileOutputStream(FILE);
-            bw = new ObjectOutputStream(fw);
-            for (Clase_Users X : USUARIOS_LISTADOS) {
-                bw.writeObject(X);
+            Q = new FileOutputStream(FILE);
+            H = new ObjectOutputStream(Q);
+            for (Clase_Users W : USUARIOS_LISTADOS) {
+                H.writeObject(W);
             }
-            bw.flush();
-        } catch (Exception ERRO) {
+            H.flush();
+        } catch (Exception U) {
         } finally {
             try {
-                bw.close();
-                fw.close();
-            } catch (Exception ex) {
+                H.close();
+                Q.close();
+            } catch (Exception V) {
             }
         }
     }
